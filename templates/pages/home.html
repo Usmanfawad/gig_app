@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block title %} Hey there {% endblock %} {% block content %}
+<h1> Welcome to tweet me 2 </h1>
+<script>
+    const xhr = new XMLHttpRequest()
+    const method = 'GET' //"POST"
+    const url = "/tweets"
+    const responseType = "json"
+
+    xhr.responseType = responseType
+    xhr.open(method, url) //Open up the request, with this method and url 
+    xhr.onload = function() {
+        const serverResponse = xhr.response
+        var listedItems = serverResponse.response
+        console.log(listedItems)
+    }
+    xhr.send() //triggers the request
+</script>
+{% endblock content %}
