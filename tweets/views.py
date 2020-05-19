@@ -2,6 +2,8 @@ from django.http import HttpResponse,Http404,JsonResponse
 from django.shortcuts import render
 from .models import *
 
+# This is basically the routes
+
 # Create your views here.
 def home_view(request,*args,**kwargs):
     return render(request,"pages/home.html",context={},status=200)

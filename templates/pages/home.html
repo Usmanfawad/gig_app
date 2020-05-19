@@ -1,6 +1,13 @@
 {% extends "base.html" %} {% block title %} Hey there {% endblock %} {% block content %}
 <h1> Welcome to tweet me 2 </h1>
+
+<div id="tweets">
+    replace me
+</div>
+
 <script>
+    const tweetsElement = document.getElementById("tweets")
+    tweetsElement.innerHTML = "Loading..."
     const xhr = new XMLHttpRequest()
     const method = 'GET' //"POST"
     const url = "/tweets"
@@ -11,7 +18,13 @@
     xhr.onload = function() {
         const serverResponse = xhr.response
         var listedItems = serverResponse.response
-        console.log(listedItems)
+        var finalTweetStr = ""
+        var i;
+        for (i = 0; i < listedItems.length; i++) {
+            console.log(i)
+            console.log(listedItems[i])
+
+        }
     }
     xhr.send() //triggers the request
 </script>
